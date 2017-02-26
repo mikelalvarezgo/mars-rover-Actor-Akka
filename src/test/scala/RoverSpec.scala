@@ -24,7 +24,7 @@ class RoverSpec extends TestKit(ActorSystem("MarsRoverControllerTest"))
     }
     "have initial position 1,0 and direction North after forward" in {
       roverTest ! Forward
-      roverTest.underlyingActor.position must equal(Position(1,0))
+      roverTest.underlyingActor.position must equal(Position(0,1))
       roverTest.underlyingActor.facingDirection must equal(Directions.NORTH)
     }
     "have initial position 0,0 and direction South  after backward" in {
@@ -32,9 +32,9 @@ class RoverSpec extends TestKit(ActorSystem("MarsRoverControllerTest"))
       roverTest.underlyingActor.position must equal(Position(0,0))
       roverTest.underlyingActor.facingDirection must equal(Directions.SOUTH)
     }
-    "have initial position 0,-1 and direction West  after rigth command" in {
+    "have initial position -1,0 and direction West  after rigth command" in {
       roverTest ! Right
-      roverTest.underlyingActor.position must equal(Position(0,-1))
+      roverTest.underlyingActor.position must equal(Position(-1,0))
       roverTest.underlyingActor.facingDirection must equal(Directions.WEST)
     }
     "have initial position 0,0 and direction   after backward command" in {
